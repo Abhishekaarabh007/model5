@@ -56,7 +56,7 @@ class Predict(Resource):
         mod5_attribs.append(request.args.get('mod5_attrib29',type=float))
        
   
-        data = np.array(list(data.values()))
+        data = np.array(mod5_attribs)
         data = np.reshape(data, newshape=(1, 29), order='C')
         yPred1 = autoencoder.predict(data)
         mse = np.mean(np.power(data - yPred1, 2), axis=1)
